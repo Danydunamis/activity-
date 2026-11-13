@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Activity</title>
+<style>
+:root{--bg:#e8edf1;--ink:#14202e;--accent:#1d6f8c;--onacc:#fff;--card:#fff;--line:#cfd8df}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1923;--ink:#e8eef3;--accent:#5cc0e0;--onacc:#0f1923;--card:#1a2735;--line:#2c3d4f}}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+.box{width:100%;max-width:420px;text-align:center}
+h1{font-size:40px;margin:0 0 8px;font-weight:800}
+p{margin:0 0 20px;opacity:.8}
+button{display:block;width:100%;font:inherit;font-weight:700;font-size:18px;padding:16px;margin-bottom:12px;border-radius:12px;border:2px solid var(--accent);background:var(--accent);color:var(--onacc);cursor:pointer}
+button.alt{background:var(--card);color:var(--ink);border-color:var(--line)}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Activity</h1>
+<p>Выберите язык · Choose your language</p>
+<button id="ru">Русский</button>
+<button id="en" class="alt">English</button>
+</div>
+<script type="text/plain" id="p-ru"><!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Activity</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8edf1;--card:#fff;--ink:#14202e;--mute:#5a6b7b;--line:#cfd8df;--accent:#1d6f8c;--bad:#c9372c;--ok:#1e8a5c;--badbg:#fbe9e7;--okbg:#e4f4ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1923;--card:#1a2735;--ink:#e8eef3;--mute:#9db0c0;--line:#2c3d4f;--accent:#5cc0e0;--bad:#ff7468;--ok:#4cd39a;--badbg:#3a1f22;--okbg:#17332a}}
+:root[data-theme="dark"]{--bg:#0f1923;--card:#1a2735;--ink:#e8eef3;--mute:#9db0c0;--line:#2c3d4f;--accent:#5cc0e0;--bad:#ff7468;--ok:#4cd39a;--badbg:#3a1f22;--okbg:#17332a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Rubik",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding:18px 16px 32px}
+h1{font-size:clamp(34px,10vw,52px);line-height:1.05;margin:8px 0 12px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:22px;margin:0 0 8px;font-weight:700}
+p{margin:0 0 12px}
+.mute{color:var(--mute);font-size:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--mute);margin-bottom:8px}
+.top b{color:var(--ink)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.kind{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:6px}
+.from{font-size:13px;color:var(--mute);padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--line);word-break:break-word}
+.title{font-size:19px;font-weight:700;margin-bottom:6px;word-break:break-word}
+.body{font-size:16px;word-break:break-word}
+.body u{color:var(--accent);text-underline-offset:3px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{font:inherit;font-weight:700;font-size:17px;padding:14px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;text-align:center}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn:disabled{cursor:default}
+.btn.main{background:var(--accent);border-color:var(--accent);color:#fff;width:100%}
+:root[data-theme="dark"] .btn.main{color:#0f1923}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.main{color:#0f1923}}
+.btn.safe{border-color:var(--ok);color:var(--ok)}
+.btn.threat{border-color:var(--bad);color:var(--bad)}
+.opts{display:grid;gap:10px}
+.opts .btn{text-align:left;font-weight:500;font-size:16px}
+.opts .btn.right{border-color:var(--ok);background:var(--okbg)}
+.opts .btn.wrong{border-color:var(--bad);background:var(--badbg)}
+.stampline{text-align:right;margin-top:12px;min-height:0}
+.stamp{display:inline-block;border:4px solid;border-radius:6px;padding:2px 12px;font-weight:800;font-size:22px;transform:rotate(-6deg);animation:pop .3s cubic-bezier(.2,1.6,.4,1)}
+.stamp.bad{color:var(--bad)}.stamp.ok{color:var(--ok)}
+@keyframes pop{from{transform:rotate(-6deg) scale(2.2);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}.bar i{transition:none}}
+.verdict{border-radius:12px;padding:14px;margin-bottom:12px}
+.verdict.ok{background:var(--okbg)}.verdict.bad{background:var(--badbg)}
+.verdict strong{display:block;margin-bottom:4px}
+.badex{background:var(--badbg);border-radius:10px;padding:10px 12px;margin-top:8px;font-weight:500}
+.rank{font-size:30px;font-weight:800;margin:4px 0 6px}
+.rules{padding-left:20px;margin:0 0 16px}
+.rules li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var C=[
+{k:'✉️ Почта',from:'support@paypa1-secure.com',t:'Ваш аккаунт заблокирован!',b:'Подтвердите данные в течение 1 часа, иначе доступ будет закрыт навсегда. <u>Подтвердить аккаунт</u>',bad:1,why:'Срочность и угрозы, подменённый адрес (в paypa1 вместо «l» стоит цифра 1) и ссылка на «подтверждение». Настоящие сервисы так не давят.'},
+{k:'💬 СМС',from:'Банк',t:'Покупка 1 250 ₽',b:'Покупка в магазине «Продукты». Если это были не вы, позвоните по номеру на обороте карты.',bad:0,why:'Сообщение только информирует: нет ссылки, оно не просит код или данные и отправляет на официальный номер с карты.'},
+{k:'🔑 Пароль',from:'Придуманный пароль',t:'qwerty2024',b:'Один и тот же для почты, соцсетей и интернет-банка.',bad:1,stamp:'СЛАБО',why:'Простой пароль подбирают за секунды, а один пароль на все сайты открывает все двери сразу.'},
+{k:'📶 Wi-Fi',from:'Free_Cafe_WiFi · без пароля',t:'Открытая сеть в кафе',b:'Вы хотите быстро зайти в интернет-банк и оплатить счёт.',bad:1,why:'В открытой сети трафик легко перехватить, а название сети можно подделать. Для банка лучше мобильный интернет.'},
+{k:'📎 Вложение',from:'«Коллега» · anna.work@mail-doc.top',t:'Срочно посмотри',b:'Файл: <u>счёт_май.pdf.exe</u>',bad:1,why:'Расширение .exe значит, что это программа, а не документ. Двойное расширение — классический трюк, а адрес отправителя чужой.'},
+{k:'🔒 Вход',from:'Официальный сайт почты, адрес набран вручную',t:'Вход с одноразовым кодом',b:'В адресе замок https, после пароля просят код из приложения-аутентификатора.',bad:0,why:'Адрес проверен, соединение защищено, включена двухфакторная аутентификация. Так и должно быть.'},
+{k:'💬 Мессенджер',from:'Лёша (новый номер)',t:'Привет! Выручи срочно',b:'Скинь 5000 на карту, завтра верну. Не звони, я на совещании.',bad:1,why:'Аккаунт друга могли взломать или подделать. Деньги, срочность и «не звони» — тревожные признаки. Перезвоните по старому номеру.'},
+{k:'🔄 Обновление',from:'Официальный магазин приложений',t:'Доступна новая версия',b:'Обновление установится прямо из магазина, без ссылок из сообщений.',bad:0,why:'Обновления из официальных магазинов проверяются, а установка не требует переходов по чужим ссылкам.'},
+{k:'💬 СМС',from:'Почта · незнакомый номер',t:'Курьер не смог доставить посылку',b:'Оплатите доплату 49 ₽: <u>bit-ly-pochta.top/pay</u>',bad:1,why:'Мелкая «доплата», странная ссылка не на официальный сайт и расчёт на то, что вы не проверите. Данные карты уйдут мошенникам.'},
+{k:'🔑 Пароль',from:'Придуманный пароль',t:'Кофе-в-6-утра-на-балконе!',b:'Уникальный, только для одного сайта, хранится в менеджере паролей.',bad:0,why:'Длинная фраза надёжнее короткого набора символов, а уникальность защищает остальные аккаунты, если один взломают.'}
+];
+var F=[
+{bad:'Один пароль для всех сайтов',o:['Добавлять в конце цифру сайта','Менеджер паролей и уникальный пароль для каждого сайта','Хранить пароль в заметке на телефоне'],a:1,why:'Менеджер создаёт и хранит уникальные пароли, поэтому утечка на одном сайте не затрагивает остальные.'},
+{bad:'Другу в чате: «Вот мой код из СМС»',o:['Никому не передавать коды и позвонить другу','Отправить код, он же друг','Отправить код картинкой'],a:0,why:'Код из СМС — ключ к вашему аккаунту. Его не просят настоящие сотрудники и не должны получать даже друзья: их чат могли взломать.'},
+{bad:'Фото посадочного талона в соцсетях',o:['Выложить, но замазать только имя','Выложить в историю на сутки','Не публиковать: штрихкод содержит данные о поездке'],a:2,why:'По штрихкоду и номеру брони можно узнать данные о вас и даже изменить бронь. Личные документы не публикуют.'},
+{bad:'Письмо «от банка»: «Перейдите по ссылке и войдите»',o:['Перейти по ссылке и быстро проверить','Переслать письмо коллегам','Открыть приложение или сайт банка вручную'],a:2,why:'Заходите в сервис своим путём, а не по ссылке из письма. Так вы не попадёте на копию сайта.'}
+];
+var N=C.length+F.length,s=0,score=0,right=0,streak=0,app=document.getElementById('app');
+
+function head(){return '<div class="top"><span>Дело <b>'+(s+1)+'</b> из '+N+'</span><span>Очки <b>'+score+'</b></span></div><div class="bar"><i style="width:'+(s/N*100)+'%"></i></div>';}
+
+function intro(){
+ app.innerHTML='<h1>Кибердетектив</h1><p>Перед вами 14 дел. В первых десяти решите, безопасна ситуация или это угроза. В последних четырёх выберите, как исправить ошибку.</p><div class="card"><div class="kind">Играете командой?</div><div class="body">Дайте 20 секунд на обсуждение, затем капитан нажимает ответ. Очки записывайте себе, у каждой команды своё прохождение.</div></div><button class="btn main" id="go">Начать расследование</button>';
+ document.getElementById('go').onclick=function(){s=0;score=0;right=0;streak=0;step();};
+}
+
+function step(){
+ if(s>=N){return end();}
+ if(s<C.length){showCase(C[s]);}else{showFix(F[s-C.length]);}
+}
+
+function mark(ok){
+ if(ok){streak++;right++;score+=10+(streak>=3?5:0);}else{streak=0;}
+}
+
+function verdict(ok,why,extra){
+ return '<div class="verdict '+(ok?'ok':'bad')+'"><strong>'+(ok?'Верно! +'+(10+(streak>=3?5:0))+(streak>=3?' (серия '+streak+')':''):'Не совсем')+'</strong>'+why+'</div><button class="btn main" id="next">'+(s+1>=N?'Узнать результат':'Следующее дело')+'</button>';
+}
+
+function showCase(c){
+ app.innerHTML=head()+'<div class="card" id="card"><div class="kind">'+c.k+'</div><div class="from">'+c.from+'</div><div class="title">'+c.t+'</div><div class="body">'+c.b+'</div><div class="stampline" id="st"></div></div><div id="act"><div class="row"><button class="btn safe" data-a="0">Безопасно</button><button class="btn threat" data-a="1">Угроза</button></div></div>';
+ var bs=app.querySelectorAll('[data-a]');
+ bs.forEach(function(b){b.onclick=function(){
+  var ok=(+b.dataset.a===c.bad);
+  mark(ok);
+  document.getElementById('st').innerHTML='<span class="stamp '+(c.bad?'bad':'ok')+'">'+(c.bad?(c.stamp||'ОПАСНО'):'БЕЗОПАСНО')+'</span>';
+  document.getElementById('act').innerHTML=verdict(ok,c.why);
+  document.getElementById('next').onclick=function(){s++;step();window.scrollTo(0,0);};
+  document.getElementById('next').focus();
+ };});
+}
+
+function showFix(f){
+ app.innerHTML=head()+'<h2>Исправь ошибку</h2><div class="card"><div class="kind">Плохой пример</div><div class="badex">'+f.bad+'</div></div><div class="opts" id="act"></div><div id="res"></div>';
+ var box=document.getElementById('act');
+ f.o.forEach(function(t,idx){
+  var b=document.createElement('button');b.className='btn';b.textContent=t;
+  b.onclick=function(){
+   var ok=idx===f.a;mark(ok);
+   box.querySelectorAll('button').forEach(function(x,j){x.disabled=true;if(j===f.a)x.classList.add('right');else if(x===b)x.classList.add('wrong');});
+   document.getElementById('res').innerHTML='<div style="height:12px"></div>'+verdict(ok,f.why);
+   document.getElementById('next').onclick=function(){s++;step();window.scrollTo(0,0);};
+   document.getElementById('next').focus();
+  };
+  box.appendChild(b);
+ });
+}
+
+function end(){
+ var r=right>=13?'Кибердетектив':right>=10?'Опытный агент':right>=7?'Стажёр':'Новичок';
+ var m=right>=13?'Фишинг вас не проведёт.':right>=10?'Почти идеально. Перечитайте правила ниже.':right>=7?'Хорошее начало. Сыграйте ещё раз, чтобы закрепить.':'Не страшно: теперь вы знаете признаки. Сыграйте ещё раз.';
+ app.innerHTML='<div class="bar"><i style="width:100%"></i></div><div class="mute">Расследование завершено</div><div class="rank">'+r+'</div><p>'+m+'</p><div class="card"><div class="title">Очки: '+score+'</div><div class="body">Верных ответов: '+right+' из '+N+'</div></div><h2>5 правил кибердетектива</h2><ol class="rules"><li>Срочность и угрозы — повод остановиться и проверить.</li><li>Смотрите на адрес отправителя и ссылку, а не на название.</li><li>Пароли длинные и уникальные, плюс двухфакторная защита.</li><li>Коды из СМС не называют никому.</li><li>В открытом Wi-Fi не заходят в банк и почту.</li></ol><button class="btn main" id="again">Сыграть ещё раз</button>';
+ document.getElementById('again').onclick=function(){s=0;score=0;right=0;streak=0;step();window.scrollTo(0,0);};
+}
+intro();
+<\/script>
+</body>
+</html>
+</script>
+<script type="text/plain" id="p-en"><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Activity</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8edf1;--card:#fff;--ink:#14202e;--mute:#5a6b7b;--line:#cfd8df;--accent:#1d6f8c;--bad:#c9372c;--ok:#1e8a5c;--badbg:#fbe9e7;--okbg:#e4f4ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1923;--card:#1a2735;--ink:#e8eef3;--mute:#9db0c0;--line:#2c3d4f;--accent:#5cc0e0;--bad:#ff7468;--ok:#4cd39a;--badbg:#3a1f22;--okbg:#17332a}}
+:root[data-theme="dark"]{--bg:#0f1923;--card:#1a2735;--ink:#e8eef3;--mute:#9db0c0;--line:#2c3d4f;--accent:#5cc0e0;--bad:#ff7468;--ok:#4cd39a;--badbg:#3a1f22;--okbg:#17332a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Rubik",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding:18px 16px 32px}
+h1{font-size:clamp(34px,10vw,52px);line-height:1.05;margin:8px 0 12px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:22px;margin:0 0 8px;font-weight:700}
+p{margin:0 0 12px}
+.mute{color:var(--mute);font-size:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--mute);margin-bottom:8px}
+.top b{color:var(--ink)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:16px}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.kind{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:6px}
+.from{font-size:13px;color:var(--mute);padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--line);word-break:break-word}
+.title{font-size:19px;font-weight:700;margin-bottom:6px;word-break:break-word}
+.body{font-size:16px;word-break:break-word}
+.body u{color:var(--accent);text-underline-offset:3px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{font:inherit;font-weight:700;font-size:17px;padding:14px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;text-align:center}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn:disabled{cursor:default}
+.btn.main{background:var(--accent);border-color:var(--accent);color:#fff;width:100%}
+:root[data-theme="dark"] .btn.main{color:#0f1923}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.main{color:#0f1923}}
+.btn.safe{border-color:var(--ok);color:var(--ok)}
+.btn.threat{border-color:var(--bad);color:var(--bad)}
+.opts{display:grid;gap:10px}
+.opts .btn{text-align:left;font-weight:500;font-size:16px}
+.opts .btn.right{border-color:var(--ok);background:var(--okbg)}
+.opts .btn.wrong{border-color:var(--bad);background:var(--badbg)}
+.stampline{text-align:right;margin-top:12px}
+.stamp{display:inline-block;border:4px solid;border-radius:6px;padding:2px 12px;font-weight:800;font-size:22px;transform:rotate(-6deg);animation:pop .3s cubic-bezier(.2,1.6,.4,1)}
+.stamp.bad{color:var(--bad)}.stamp.ok{color:var(--ok)}
+@keyframes pop{from{transform:rotate(-6deg) scale(2.2);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}.bar i{transition:none}}
+.verdict{border-radius:12px;padding:14px;margin-bottom:12px}
+.verdict.ok{background:var(--okbg)}.verdict.bad{background:var(--badbg)}
+.verdict strong{display:block;margin-bottom:4px}
+.badex{background:var(--badbg);border-radius:10px;padding:10px 12px;margin-top:8px;font-weight:500}
+.rank{font-size:30px;font-weight:800;margin:4px 0 6px}
+.rules{padding-left:20px;margin:0 0 16px}
+.rules li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var C=[
+{k:'✉️ Email',from:'support@paypa1-secure.com',t:'Your account has been locked!',b:'Confirm your details within 1 hour or your access will be closed permanently. <u>Verify my account</u>',bad:1,why:'Urgency and threats, a spoofed address (paypa1 uses the digit 1 instead of “l”) and a link to “verify”. Real services don’t pressure you like this.'},
+{k:'💬 SMS',from:'Your bank',t:'Purchase of $12.50',b:'Purchase at Corner Market. If this wasn’t you, call the number on the back of your card.',bad:0,why:'The message only informs: no link, no request for a code or personal data, and it points you to the official number on your card.'},
+{k:'🔑 Password',from:'A password someone made up',t:'qwerty2024',b:'Used for email, social media and online banking at the same time.',bad:1,stamp:'WEAK',why:'A simple password is guessed in seconds, and one password for every site opens every door at once.'},
+{k:'📶 Wi-Fi',from:'Free_Cafe_WiFi · no password',t:'Open network at a café',b:'You want to log in to your online bank and pay a bill.',bad:1,why:'Traffic on an open network is easy to intercept, and the network name can be faked. Use mobile data for banking.'},
+{k:'📎 Attachment',from:'“Colleague” · anna.work@mail-doc.top',t:'Please look at this ASAP',b:'File: <u>invoice_may.pdf.exe</u>',bad:1,why:'An .exe extension means it’s a program, not a document. A double extension is a classic trick, and the sender’s address isn’t your colleague’s.'},
+{k:'🔒 Login',from:'Official email site, address typed in by hand',t:'Sign-in with a one-time code',b:'The address shows a https padlock, and after your password you’re asked for a code from an authenticator app.',bad:0,why:'You checked the address, the connection is encrypted and two-factor authentication is on. This is how it should look.'},
+{k:'💬 Messenger',from:'Alex (new number)',t:'Hi! I need a favor, fast',b:'Send $500 to my card, I’ll pay you back tomorrow. Don’t call, I’m in a meeting.',bad:1,why:'A friend’s account can be hacked or cloned. Money, urgency and “don’t call” are red flags. Call them on their old number.'},
+{k:'🔄 Update',from:'Official app store',t:'A new version is available',b:'The update installs straight from the store, with no links from messages.',bad:0,why:'Updates from official stores are vetted, and installing them never requires following a link from someone else.'},
+{k:'💬 SMS',from:'Post office · unknown number',t:'We couldn’t deliver your parcel',b:'Pay a $0.99 redelivery fee: <u>bit-ly-post.top/pay</u>',bad:1,why:'A tiny “fee”, an odd link that isn’t the official site, and a bet that you won’t check. Your card details would go straight to scammers.'},
+{k:'🔑 Password',from:'A password someone made up',t:'Coffee-at-6am-on-the-balcony!',b:'Unique, used for one site only, stored in a password manager.',bad:0,why:'A long phrase beats a short string of symbols, and being unique protects your other accounts if one gets breached.'}
+];
+var F=[
+{bad:'One password for every site',o:['Add the site’s number at the end','Use a password manager and a unique password for each site','Keep the password in a note on your phone'],a:1,why:'A manager creates and stores unique passwords, so a leak on one site doesn’t affect the others.'},
+{bad:'To a friend in chat: “Here’s my code from the text message”',o:['Never share codes, and call your friend instead','Send the code, it’s a friend','Send the code as a picture'],a:0,why:'A text-message code is the key to your account. Real staff never ask for it, and even friends shouldn’t get it: their chat could be hacked.'},
+{bad:'A photo of your boarding pass on social media',o:['Post it, but blur only the name','Post it as a 24-hour story','Don’t post it: the barcode contains your trip data'],a:2,why:'The barcode and booking number can reveal your details and even let someone change your booking. Don’t publish personal documents.'},
+{bad:'An email “from your bank”: “Follow the link and log in”',o:['Follow the link and check quickly','Forward the email to coworkers','Open the bank’s app or website yourself'],a:2,why:'Go to a service your own way, not through a link in an email. That way you won’t land on a look-alike site.'}
+];
+var N=C.length+F.length,s=0,score=0,right=0,streak=0,app=document.getElementById('app');
+
+function head(){return '<div class="top"><span>Case <b>'+(s+1)+'</b> of '+N+'</span><span>Score <b>'+score+'</b></span></div><div class="bar"><i style="width:'+(s/N*100)+'%"></i></div>';}
+
+function intro(){
+ app.innerHTML='<h1>Cyber Detective</h1><p>You have 14 cases. In the first ten, decide whether the situation is safe or a threat. In the last four, pick how to fix the mistake.</p><div class="card"><div class="kind">Playing as a team?</div><div class="body">Give everyone 20 seconds to discuss, then the captain taps the answer. Each team keeps its own score and plays its own run.</div></div><button class="btn main" id="go">Start the investigation</button>';
+ document.getElementById('go').onclick=function(){s=0;score=0;right=0;streak=0;step();};
+}
+
+function step(){
+ if(s>=N){return end();}
+ if(s<C.length){showCase(C[s]);}else{showFix(F[s-C.length]);}
+}
+
+function mark(ok){
+ if(ok){streak++;right++;score+=10+(streak>=3?5:0);}else{streak=0;}
+}
+
+function verdict(ok,why){
+ return '<div class="verdict '+(ok?'ok':'bad')+'"><strong>'+(ok?'Correct! +'+(10+(streak>=3?5:0))+(streak>=3?' (streak '+streak+')':''):'Not quite')+'</strong>'+why+'</div><button class="btn main" id="next">'+(s+1>=N?'See my result':'Next case')+'</button>';
+}
+
+function showCase(c){
+ app.innerHTML=head()+'<div class="card"><div class="kind">'+c.k+'</div><div class="from">'+c.from+'</div><div class="title">'+c.t+'</div><div class="body">'+c.b+'</div><div class="stampline" id="st"></div></div><div id="act"><div class="row"><button class="btn safe" data-a="0">Safe</button><button class="btn threat" data-a="1">Threat</button></div></div>';
+ app.querySelectorAll('[data-a]').forEach(function(b){b.onclick=function(){
+  var ok=(+b.dataset.a===c.bad);
+  mark(ok);
+  document.getElementById('st').innerHTML='<span class="stamp '+(c.bad?'bad':'ok')+'">'+(c.bad?(c.stamp||'DANGER'):'SAFE')+'</span>';
+  document.getElementById('act').innerHTML=verdict(ok,c.why);
+  document.getElementById('next').onclick=function(){s++;step();window.scrollTo(0,0);};
+  document.getElementById('next').focus();
+ };});
+}
+
+function showFix(f){
+ app.innerHTML=head()+'<h2>Fix the mistake</h2><div class="card"><div class="kind">Bad example</div><div class="badex">'+f.bad+'</div></div><div class="opts" id="act"></div><div id="res"></div>';
+ var box=document.getElementById('act');
+ f.o.forEach(function(t,idx){
+  var b=document.createElement('button');b.className='btn';b.textContent=t;
+  b.onclick=function(){
+   var ok=idx===f.a;mark(ok);
+   box.querySelectorAll('button').forEach(function(x,j){x.disabled=true;if(j===f.a)x.classList.add('right');else if(x===b)x.classList.add('wrong');});
+   document.getElementById('res').innerHTML='<div style="height:12px"></div>'+verdict(ok,f.why);
+   document.getElementById('next').onclick=function(){s++;step();window.scrollTo(0,0);};
+   document.getElementById('next').focus();
+  };
+  box.appendChild(b);
+ });
+}
+
+function end(){
+ var r=right>=13?'Cyber Detective':right>=10?'Seasoned Agent':right>=7?'Trainee':'Rookie';
+ var m=right>=13?'Phishing won’t fool you.':right>=10?'Almost perfect. Skim the rules below.':right>=7?'A good start. Play again to lock it in.':'No worries: now you know the warning signs. Give it another go.';
+ app.innerHTML='<div class="bar"><i style="width:100%"></i></div><div class="mute">Investigation complete</div><div class="rank">'+r+'</div><p>'+m+'</p><div class="card"><div class="title">Score: '+score+'</div><div class="body">Correct answers: '+right+' of '+N+'</div></div><h2>5 rules of a cyber detective</h2><ol class="rules"><li>Urgency and threats are a signal to stop and verify.</li><li>Check the sender’s address and the link, not the display name.</li><li>Use long, unique passwords plus two-factor authentication.</li><li>Never tell anyone your text-message codes.</li><li>Don’t log in to your bank or email on open Wi-Fi.</li></ol><button class="btn main" id="again">Play again</button>';
+ document.getElementById('again').onclick=function(){s=0;score=0;right=0;streak=0;step();window.scrollTo(0,0);};
+}
+intro();
+<\/script>
+</body>
+</html>
+</script>
+<script>
+function load(id){
+ var h=document.getElementById(id).textContent.replace(/<\\\/script/g,'</script');
+ document.open();document.write(h);document.close();
+}
+document.getElementById('ru').onclick=function(){load('p-ru')};
+document.getElementById('en').onclick=function(){load('p-en')};
+</script>
+</body>
+</html>
